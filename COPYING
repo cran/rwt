@@ -1,0 +1,11 @@
+Some portion of the C source of this package includes software developed
+by Rice University, Houston, Texas and its contributors. A copy of their
+license is available online <http://dsp.rice.edu/software/RWT/LICENSE>
+and included in the package in the file named as 'LICENSE.rice'. The MATLAB
+version of the Rice Wavelet Toolkit can be found at
+<http://dsp.rice.edu/software/rwt.shtml> 
+ 
+All the MDACC-derived portion is released under the Artistic license
+as described here <http://opensource.org/licenses/artistic-license>.
+Copyright 2004, MD Anderson Cancer Center (MDACC). All rights reserved.
+

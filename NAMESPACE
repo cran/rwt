@@ -1,0 +1,17 @@
+useDynLib(rwt)
+
+## Public routines and variables
+export(denoise, denoise.dwt, denoise.udwt)
+export(default.dwt.option, default.udwt.option)
+export(plotSignalTransformation)
+export(daubcqf)
+exportPattern("^PHASE\\.")
+
+## Protected routines
+export(mdwt, midwt, mirdwt, mrdwt)
+export(hardTh, softTh)
+
+## Documented as internal but called from scripts
+export(makesig)
+exportPattern("^SIGNAL\\.")
+
