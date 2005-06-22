@@ -3,9 +3,9 @@
 \alias{PHASE.MINIMUM}
 \alias{PHASE.MID}
 \alias{PHASE.MAXIMUM}
-\title{filter creation function}
+\title{Daubechies Filter Creation}
 \description{
-  Computes the Daubechies' scaling and wavelet filters (normalized to sqrt(2)).
+  Computes the Daubechies' scaling and wavelet filters (normalized to \eqn{sqrt(2)}).
 }
 \usage{
 daubcqf(N, type = PHASE.MINIMUM)
@@ -30,7 +30,7 @@ solutions. Valid values are:
 }
 \author{P. Roebuck, \email{roebuck@mdanderson.org}}
 \examples{
-h <- daubcqf(6);
+h <- daubcqf(6)
 }
 \keyword{interface}
 

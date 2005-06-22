@@ -1,7 +1,7 @@
 /*
- * File Name: rwt_mdwt.c
+ * File Name: do_mirdwt.c
  *
- * .Call interface to discrete wavelet transform method
+ * .Call interface to inverse redundant discrete wavelet transform method
  *
  * Copyright (c) 2004 MD Anderson Cancer Center. All rights reserved.
  * Created by Paul Roebuck, Department of Bioinformatics, MDACC.
@@ -9,54 +9,71 @@
 
 #include <R.h>
 #include <Rdefines.h>
-#include "rwt_mdwt.h"
-#include "rwt_util.h"
+#include "do_mirdwt.h"
+#include "do_util.h"
 
 
 /*
  * Macros
  */
 #define isint(x) ((x - floor(x)) > 0.0 ? 0 : 1)
+#define min(a,b) (((a) < (b)) ? (a) : (b))
 
 
 /*
  * Public
  */
-SEXP rwt_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
+SEXP do_mirdwt(SEXP vntYl, SEXP vntYh, SEXP vntH, SEXP vntL)
 {
     SEXP vntOut;
-    SEXP vntY;
+    SEXP vntX;
     SEXP vntLr;
-    double *x, *h, *y;
-    int m, n, lh, L;
+    double *x, *h, *yl, *yh;
+    int m, n, mh, nh, lh, L;
 
 #ifdef DEBUG_RWT
-    REprintf("In rwt_mdwt(x, h, L)...\n");
+    REprintf("In do_mirdwt(yl, yh, h, L)...\n");
 #endif
 
     /*
      * Handle first parameter (numeric matrix)
      */
 #ifdef DEBUG_RWT
-    REprintf("\tfirst param 'x'\n");
+    REprintf("\tfirst param 'yl'\n");
 #endif
-    if (GetMatrixDimen(vntX, &m, &n) != 2)
+    if (GetMatrixDimen(vntYl, &m, &n) != 2)
     {
-        error("'x' is not a two dimensional matrix");
+        error("'yl' is not a two dimensional matrix");
         /*NOTREACHED*/
     }
-
-    PROTECT(vntX = AS_NUMERIC(vntX));
-    x = NUMERIC_POINTER(vntX);
+    PROTECT(vntYl = AS_NUMERIC(vntYl));
+    yl = NUMERIC_POINTER(vntYl);
 #ifdef DEBUG_RWT
-    REprintf("x[%d][%d] = 0x%p\n", m, n, x);
+    REprintf("yl[%d][%d] = 0x%p\n", m, n, yl);
 #endif
 
     /*
-     * Handle second parameter (numeric vector)
+     * Handle second parameter (numeric matrix)
      */
 #ifdef DEBUG_RWT
-    REprintf("\tsecond param 'h'\n");
+    REprintf("\tsecond param 'yh'\n");
+#endif
+    if (GetMatrixDimen(vntYh, &mh, &nh) != 2)
+    {
+        error("'yh' is not a two dimensional matrix");
+        /*NOTREACHED*/
+    }
+    PROTECT(vntYh = AS_NUMERIC(vntYh));
+    yh = NUMERIC_POINTER(vntYh);
+#ifdef DEBUG_RWT
+    REprintf("yh[%d][%d] = 0x%p\n", mh, nh, yh);
+#endif
+
+    /*
+     * Handle third parameter (numeric vector)
+     */
+#ifdef DEBUG_RWT
+    REprintf("\tthird param 'h'\n");
 #endif
     PROTECT(vntH = AS_NUMERIC(vntH));
     h = NUMERIC_POINTER(vntH);
@@ -66,10 +83,10 @@ SEXP rwt_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
 #endif
 
     /*
-     * Handle third parameter (integer scalar)
+     * Handle fourth parameter (integer scalar)
      */
 #ifdef DEBUG_RWT
-    REprintf("\tthird param 'L'\n");
+    REprintf("\tfourth param 'L'\n");
 #endif
     {
         PROTECT(vntL = AS_INTEGER(vntL));
@@ -90,6 +107,27 @@ SEXP rwt_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
     {
         error("The number of levels, L, must be a non-negative integer");
         /*NOTREACHED*/
+    }
+
+    /* check for consistency of rows and columns of yl, yh */
+#ifdef DEBUG_RWT
+    REprintf("\tcheck row/column consistency of signal components\n");
+#endif
+    if (min(m,n) > 1)
+    {
+        if (!((m == mh) && (3*n*L == nh)))
+        {
+            error("Dimensions of first two input matrices not consistent!");
+            /*NOTREACHED*/
+        }
+    }
+    else
+    {
+        if (!((m == mh) && (n*L == nh)))
+        {
+            error("Dimensions of first two input vectors not consistent!");
+            /*NOTREACHED*/
+        }
     }
 
 #ifdef DEBUG_RWT
@@ -121,17 +159,17 @@ SEXP rwt_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
     REprintf("\tcreate value objects\n");
 #endif
 
-    /* Create y value object */
+    /* Create x value object */
     {
 #ifdef DEBUG_RWT
-        REprintf("\tcreate 'y' value object\n");
+        REprintf("\tcreate 'x' value object\n");
 #endif
-        PROTECT(vntY = NEW_NUMERIC(n*m));
-        y = NUMERIC_POINTER(vntY);
+        PROTECT(vntX = NEW_NUMERIC(n*m));
+        x = NUMERIC_POINTER(vntX);
 
         /* Add dimension attribute to value object */
 #ifdef DEBUG_RWT
-        REprintf("\tconvert 'y' value object to matrix\n");
+        REprintf("\tconvert 'x' value object to matrix\n");
 #endif
         {
             SEXP vntDim;
@@ -139,7 +177,7 @@ SEXP rwt_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
             PROTECT(vntDim = NEW_INTEGER(2));
             INTEGER(vntDim)[0] = m;
             INTEGER(vntDim)[1] = n;
-            SET_DIM(vntY, vntDim);
+            SET_DIM(vntX, vntDim);
             UNPROTECT(1);
         }
     }
@@ -154,12 +192,12 @@ SEXP rwt_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
     }
 
 #ifdef DEBUG_RWT
-    REprintf("\tcompute discrete wavelet transform\n");
+    REprintf("\tcompute inverse redundant discrete wavelet transform\n");
 #endif
-    MDWT(x, m, n, h, lh, L, y);
+    MIRDWT(x, m, n, h, lh, L, yl, yh);
 
     /* Unprotect params */
-    UNPROTECT(2);
+    UNPROTECT(3);
 
 #ifdef DEBUG_RWT
     REprintf("\tcreate list output object\n");
@@ -169,7 +207,7 @@ SEXP rwt_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
 #ifdef DEBUG_RWT
     REprintf("\tassigning value objects to list\n");
 #endif
-    SET_VECTOR_ELT(vntOut, 0, vntY);
+    SET_VECTOR_ELT(vntOut, 0, vntX);
     SET_VECTOR_ELT(vntOut, 1, vntLr);
 
     /* Unprotect value objects */
@@ -182,7 +220,7 @@ SEXP rwt_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
         REprintf("\tassigning names to value objects in list\n");
 #endif
         PROTECT(vntNames = NEW_CHARACTER(2));
-        SET_STRING_ELT(vntNames, 0, CREATE_STRING_VECTOR("y"));
+        SET_STRING_ELT(vntNames, 0, CREATE_STRING_VECTOR("x"));
         SET_STRING_ELT(vntNames, 1, CREATE_STRING_VECTOR("L"));
         SET_NAMES(vntOut, vntNames);
         UNPROTECT(1);

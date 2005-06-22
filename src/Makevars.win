@@ -1,2 +1,0 @@
-PKG_CFLAGS=-Wall -pedantic -I./
-PKG_LIBS=-lm

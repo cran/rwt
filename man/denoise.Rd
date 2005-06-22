@@ -14,7 +14,7 @@
 \alias{DEFAULT.UDWT.THRESHOLD.MULTIPLIER}
 \alias{default.dwt.option}
 \alias{default.udwt.option}
-\title{wavelet-based denoising function}
+\title{Wavelet-based Denoising}
 \description{
   Denoise the signal \code{x} using the 2-band wavelet system described
   by the filter \code{h} using either the traditional discrete wavelet
@@ -81,9 +81,9 @@ Both \code{denoise.dwt} and \code{denoise.udwt} are convenience routines
 that call the \code{denoise} routine with appropriate default arguments.
 }
 \examples{
-sig <- makesig(SIGNAL.DOPPLER);
-h <- daubcqf(6);
-ret.dwt <- denoise.dwt(sig$x, h$h.0);
+sig <- makesig(SIGNAL.DOPPLER)
+h <- daubcqf(6)
+ret.dwt <- denoise.dwt(sig$x, h$h.0)
 }
 \keyword{interface}
 

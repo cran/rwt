@@ -1,6 +1,6 @@
 \name{daubcoeff}
 \alias{.getDaubechiesCoefficients}
-\title{daubechies coefficients function}
+\title{Daubechies Coefficients}
 \description{
   Returns the Daubechies coefficients for given number of coefficients.
 }
@@ -15,6 +15,9 @@
 }
 \details{
   Supported values of \code{N} are [4|6|8|10|12|14|16|18|20].
+}
+\references{
+  \url{http://cas.ensmp.fr/~chaplais/Wavetour_presentation/Tables/Daubechies/}
 }
 \author{P. Roebuck, \email{roebuck@mdanderson.org}}
 \keyword{internal}

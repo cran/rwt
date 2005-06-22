@@ -1,5 +1,5 @@
 /*
- * File Name: rwt_util.c
+ * File Name: do_util.c
  *
  * Utility routines associated with .Call interfaces
  *
@@ -9,7 +9,7 @@
 
 #include <R.h>
 #include <Rdefines.h>
-#include "rwt_util.h"
+#include "do_util.h"
 
 
 /*

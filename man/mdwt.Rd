@@ -1,6 +1,6 @@
 \name{mdwt}
 \alias{mdwt}
-\title{discrete wavelet transform function}
+\title{Discrete Wavelet Transform}
 \description{
   Computes the discrete wavelet transform \code{y} for
   input signal \code{x} using the scaling filter \code{h}.
@@ -26,10 +26,10 @@ for maximal possible L.
 \references{ ~put references to the literature/web site here ~ }
 \author{P. Roebuck, \email{roebuck@mdanderson.org}}
 \examples{
-sig <- makesig(SIGNAL.LIN.CHIRP, 8);
-h <- daubcqf(4);
-L <- 2;
-ret.mdwt <- mdwt(sig$x, h$h.0, L);
+sig <- makesig(SIGNAL.LIN.CHIRP, 8)
+h <- daubcqf(4)
+L <- 2
+ret.mdwt <- mdwt(sig$x, h$h.0, L)
 }
 \keyword{interface}
 

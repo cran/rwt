@@ -1,5 +1,5 @@
 /*
- * RWT_MDWT.H
+ * DO_MDWT.H
  *
  * Public include for .Call interface to MDWT
  *
@@ -7,8 +7,8 @@
  * Created by Paul Roebuck, Department of Bioinformatics, MDACC.
  */
 
-#ifndef RWT_MDWT_H
-#define RWT_MDWT_H	1
+#ifndef DO_MDWT_H
+#define DO_MDWT_H	1
 
 #include <Rdefines.h>
 #include "mdwt.h"
@@ -17,10 +17,10 @@
 /*
  * Function Declarations
  */
-extern SEXP rwt_mdwt(
+extern SEXP do_mdwt(
   SEXP vntX,
   SEXP vntH,
   SEXP vntL);
 
-#endif /* RWT_MDWT_H */
+#endif /* DO_MDWT_H */
 

@@ -1,2 +1,7 @@
-PKG_CFLAGS=-Wall -ansi -pedantic -I./
-PKG_LIBS=-lm
+#
+# MAKEVARS
+#
+
+PKG_CPPFLAGS = -DNDEBUG
+PKG_LIBS = -lm
+

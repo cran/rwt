@@ -1,6 +1,6 @@
 \name{mrdwt}
 \alias{mrdwt}
-\title{redundant discrete wavelet transform function}
+\title{Redundant Discrete Wavelet Transform}
 \description{
   Computes the redundant discrete wavelet transform \code{y} for
   input signal \code{x} using the scaling filter \code{h}. Redundant
@@ -28,10 +28,10 @@ for maximal possible L.
 \references{ ~put references to the literature/web site here ~ }
 \author{P. Roebuck, \email{roebuck@mdanderson.org}}
 \examples{
-sig <- makesig(SIGNAL.LEOPOLD, 8);
-h <- daubcqf(4);
-L <- 1;
-ret.mrdwt <- mrdwt(sig$x, h$h.0, L);
+sig <- makesig(SIGNAL.LEOPOLD, 8)
+h <- daubcqf(4)
+L <- 1
+ret.mrdwt <- mrdwt(sig$x, h$h.0, L)
 }
 \keyword{interface}
 

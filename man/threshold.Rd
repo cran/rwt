@@ -1,7 +1,7 @@
 \name{threshold}
 \alias{hardTh}
 \alias{softTh}
-\title{thresholding function}
+\title{Threshold Input Signal}
 \description{
   Thresholds the input signal \code{y} with the threshold value \code{thld}.
 }
@@ -22,9 +22,9 @@ softTh(y, thld)
 }
 \author{P. Roebuck, \email{roebuck@mdanderson.org}}
 \examples{
-sig <- makesig(SIGNAL.WERNER.SORROWS, 8);
-thld <- 1;
-x <- rwt:::hardTh(sig$x, thld);
+sig <- makesig(SIGNAL.WERNER.SORROWS, 8)
+thld <- 1
+x <- rwt:::hardTh(sig$x, thld)
 }
 \keyword{interface}
 

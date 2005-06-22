@@ -4,11 +4,12 @@
 #
 
 ##-----------------------------------------------------------------------------
-mirdwt <- function(yl, yh, h, L)
-    .Call("rwt_mirdwt",
+mirdwt <- function(yl, yh, h, L) {
+    .Call("do_mirdwt",
           as.matrix(yl),
           as.matrix(yh),
           as.vector(h),
           as.integer(L),
-          PACKAGE="rwt");
+          PACKAGE="rwt")
+}
 

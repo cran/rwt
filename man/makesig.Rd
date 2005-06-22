@@ -16,7 +16,7 @@
 \alias{SIGNAL.MISH.MASH}
 \alias{SIGNAL.WERNER.SORROWS}
 \alias{SIGNAL.LEOPOLD}
-\title{make signal function}
+\title{Make Signal}
 \description{
   Creates artificial test signal identical to the standard test signals proposed
   and used by D. Donoho and I. Johnstone in WaveLab (a MATLAB toolbox developed

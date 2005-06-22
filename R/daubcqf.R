@@ -3,9 +3,9 @@
 #             (normalized to sqrt(2)).
 #
 
-PHASE.MINIMUM <- 'min';
-PHASE.MID     <- 'mid';
-PHASE.MAXIMUM <- 'max';
+PHASE.MINIMUM <- 'min'
+PHASE.MID     <- 'mid'
+PHASE.MAXIMUM <- 'max'
 
 
 ##-----------------------------------------------------------------------------
@@ -36,31 +36,39 @@ daubcqf <- function(N, type = PHASE.MINIMUM) {
 #%                CPAM, Oct.89
 #%
 
+    if (!(is.numeric(N) && length(N) == 1)) {
+        stop(paste("argument", sQuote("N"), "must be numeric scalar"))
+    }
+
     if (N <= 0) {
-        stop(paste("Filter length cannot be negative (N = ", N, ")\n",
-                   sep = ""));
+        stop(paste("filter length cannot be negative (",
+                   sQuote("N"), " = ", N, ")",
+                   sep = ""))
     }
 
 # PLR: Minimal parameter checking performed for 'type'
 
     if (type == PHASE.MID) {
-        stop("This version does not yet support (type = PHASE.MID)\n")
+        stop(paste("code not implemented for (",
+                   sQuote("type"), " = PHASE.MID)",
+                   sep = ""))
     }
 
-    h.0 <- .getDaubechiesCoefficients(N);
+    h.0 <- .getDaubechiesCoefficients(N)
 
     if (type == PHASE.MAXIMUM) {
-        h.0 <- matlab::fliplr(t(as.matrix(h.0)));
+        h.0 <- matlab::fliplr(t(as.matrix(h.0)))
     }
 
     if (abs(sum(h.0 ^ 2)) - 1 > 1e-4) {
-        stop('Numerically unstable for this value of "N".');
+        stop(paste("numerically unstable for this value of ", sQuote("N"),
+                   sep = ""))
     }
 
-    h.1 <- matlab::rot90(as.matrix(h.0), 2);
-    h.1[seq(1, N, by = 2)] <- -h.1[seq(1, N, by = 2)];
+    h.1 <- matlab::rot90(as.matrix(h.0), 2)
+    h.1[seq(1, N, by = 2)] <- -h.1[seq(1, N, by = 2)]
 
     return(list(h.0 = as.vector(h.0),
-                h.1 = as.vector(h.1)));
+                h.1 = as.vector(h.1)))
 }
 

@@ -1,6 +1,6 @@
 \name{plotSignalTransformation}
 \alias{plotSignalTransformation}
-\title{plot function}
+\title{Plot Signal and its Transform}
 \description{
   Plots the signal \code{s} and its transform \code{x} on graphics device.
 }

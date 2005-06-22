@@ -1,7 +1,7 @@
 /*
- * File Name: rwt_mrdwt.c
+ * File Name: do_mdwt.c
  *
- * .Call interface to redundant discrete wavelet transform method
+ * .Call interface to discrete wavelet transform method
  *
  * Copyright (c) 2004 MD Anderson Cancer Center. All rights reserved.
  * Created by Paul Roebuck, Department of Bioinformatics, MDACC.
@@ -9,31 +9,29 @@
 
 #include <R.h>
 #include <Rdefines.h>
-#include "rwt_mrdwt.h"
-#include "rwt_util.h"
+#include "do_mdwt.h"
+#include "do_util.h"
 
 
 /*
  * Macros
  */
 #define isint(x) ((x - floor(x)) > 0.0 ? 0 : 1)
-#define min(a,b) (((a) < (b)) ? (a) : (b))
 
 
 /*
  * Public
  */
-SEXP rwt_mrdwt(SEXP vntX, SEXP vntH, SEXP vntL)
+SEXP do_mdwt(SEXP vntX, SEXP vntH, SEXP vntL)
 {
     SEXP vntOut;
-    SEXP vntYl;
-    SEXP vntYh;
+    SEXP vntY;
     SEXP vntLr;
-    double *x, *h, *yl, *yh;
+    double *x, *h, *y;
     int m, n, lh, L;
 
 #ifdef DEBUG_RWT
-    REprintf("In rwt_mrdwt(x, h, L)...\n");
+    REprintf("In do_mdwt(x, h, L)...\n");
 #endif
 
     /*
@@ -47,6 +45,7 @@ SEXP rwt_mrdwt(SEXP vntX, SEXP vntH, SEXP vntL)
         error("'x' is not a two dimensional matrix");
         /*NOTREACHED*/
     }
+
     PROTECT(vntX = AS_NUMERIC(vntX));
     x = NUMERIC_POINTER(vntX);
 #ifdef DEBUG_RWT
@@ -119,20 +118,20 @@ SEXP rwt_mrdwt(SEXP vntX, SEXP vntH, SEXP vntL)
     }
 
 #ifdef DEBUG_RWT
-    REprintf("\tcreating value objects\n");
+    REprintf("\tcreate value objects\n");
 #endif
 
-    /* Create yl value object */
+    /* Create y value object */
     {
 #ifdef DEBUG_RWT
-        REprintf("\tcreating 'yl' value object\n");
+        REprintf("\tcreate 'y' value object\n");
 #endif
-        PROTECT(vntYl = NEW_NUMERIC(m*n));
-        yl = NUMERIC_POINTER(vntYl);
+        PROTECT(vntY = NEW_NUMERIC(n*m));
+        y = NUMERIC_POINTER(vntY);
 
         /* Add dimension attribute to value object */
 #ifdef DEBUG_RWT
-        REprintf("\tconvert 'yl' value object to matrix\n");
+        REprintf("\tconvert 'y' value object to matrix\n");
 #endif
         {
             SEXP vntDim;
@@ -140,32 +139,7 @@ SEXP rwt_mrdwt(SEXP vntX, SEXP vntH, SEXP vntL)
             PROTECT(vntDim = NEW_INTEGER(2));
             INTEGER(vntDim)[0] = m;
             INTEGER(vntDim)[1] = n;
-            SET_DIM(vntYl, vntDim);
-            UNPROTECT(1);
-        }
-    }
-
-    /* Create yh value object */
-    {
-        int cols = (min(m,n) == 1) ? (L * n) : (3 * L * n);
-
-#ifdef DEBUG_RWT
-        REprintf("\tcreating 'yh' value object\n");
-#endif
-        PROTECT(vntYh = NEW_NUMERIC(m*cols));
-        yh = NUMERIC_POINTER(vntYh);
-
-        /* Add dimension attribute to value object */
-#ifdef DEBUG_RWT
-        REprintf("\tconvert 'yh' value object to matrix\n");
-#endif
-        {
-            SEXP vntDim;
-
-            PROTECT(vntDim = NEW_INTEGER(2));
-            INTEGER(vntDim)[0] = m;
-            INTEGER(vntDim)[1] = cols;
-            SET_DIM(vntYh, vntDim);
+            SET_DIM(vntY, vntDim);
             UNPROTECT(1);
         }
     }
@@ -180,9 +154,9 @@ SEXP rwt_mrdwt(SEXP vntX, SEXP vntH, SEXP vntL)
     }
 
 #ifdef DEBUG_RWT
-    REprintf("\tcompute redundant discrete wavelet transform\n");
+    REprintf("\tcompute discrete wavelet transform\n");
 #endif
-    MRDWT(x, m, n, h, lh, L, yl, yh);
+    MDWT(x, m, n, h, lh, L, y);
 
     /* Unprotect params */
     UNPROTECT(2);
@@ -190,17 +164,16 @@ SEXP rwt_mrdwt(SEXP vntX, SEXP vntH, SEXP vntL)
 #ifdef DEBUG_RWT
     REprintf("\tcreate list output object\n");
 #endif
-    PROTECT(vntOut = NEW_LIST(3));
+    PROTECT(vntOut = NEW_LIST(2));
 
 #ifdef DEBUG_RWT
     REprintf("\tassigning value objects to list\n");
 #endif
-    SET_VECTOR_ELT(vntOut, 0, vntYl);
-    SET_VECTOR_ELT(vntOut, 1, vntYh);
-    SET_VECTOR_ELT(vntOut, 2, vntLr);
+    SET_VECTOR_ELT(vntOut, 0, vntY);
+    SET_VECTOR_ELT(vntOut, 1, vntLr);
 
     /* Unprotect value objects */
-    UNPROTECT(3);
+    UNPROTECT(2);
 
     {
         SEXP vntNames;
@@ -208,10 +181,9 @@ SEXP rwt_mrdwt(SEXP vntX, SEXP vntH, SEXP vntL)
 #ifdef DEBUG_RWT
         REprintf("\tassigning names to value objects in list\n");
 #endif
-        PROTECT(vntNames = NEW_CHARACTER(3));
-        SET_STRING_ELT(vntNames, 0, CREATE_STRING_VECTOR("yl"));
-        SET_STRING_ELT(vntNames, 1, CREATE_STRING_VECTOR("yh"));
-        SET_STRING_ELT(vntNames, 2, CREATE_STRING_VECTOR("L"));
+        PROTECT(vntNames = NEW_CHARACTER(2));
+        SET_STRING_ELT(vntNames, 0, CREATE_STRING_VECTOR("y"));
+        SET_STRING_ELT(vntNames, 1, CREATE_STRING_VECTOR("L"));
         SET_NAMES(vntOut, vntNames);
         UNPROTECT(1);
     }

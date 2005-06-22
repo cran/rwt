@@ -1,25 +1,26 @@
 /*
- * RWT_UTIL.H
+ * DO_MRDWT.H
  *
- * Public include for utility routines associated with .Call interfaces 
+ * Public include for .Call interface to MRDWT 
  *
  * Copyright (c) 2004 MD Anderson Cancer Center. All rights reserved.
  * Created by Paul Roebuck, Department of Bioinformatics, MDACC.
  */
 
-#ifndef RWT_UTIL_H
-#define RWT_UTIL_H	1
+#ifndef DO_MRDWT_H
+#define DO_MRDWT_H	1
 
 #include <Rdefines.h>
+#include "mrdwt.h"
 
 
 /*
  * Function Declarations
  */
-extern int GetMatrixDimen(
+extern SEXP do_mrdwt(
   SEXP vntX,
-  int *nrow,
-  int *ncol);
+  SEXP vntH,
+  SEXP vntL);
 
-#endif /* RWT_UTIL_H */
+#endif /* DO_MRDWT_H */
 

@@ -1,6 +1,6 @@
 \name{mirdwt}
 \alias{mirdwt}
-\title{inverse redundant discrete wavelet transform function}
+\title{Inverse Redundant Discrete Wavelet Transform}
 \description{
   Computes the inverse redundant discrete wavelet transform \code{x} for
   input signal \code{y} using the scaling filter \code{h}. (Redundant means
@@ -29,11 +29,11 @@ for maximal possible L.
 \references{ ~put references to the literature/web site here ~ }
 \author{P. Roebuck, \email{roebuck@mdanderson.org}}
 \examples{
-sig <- makesig(SIGNAL.LEOPOLD, 8);
-h <- daubcqf(4);
-L <- 1;
-ret.mrdwt <- mrdwt(sig$x, h$h.0, L);
-ret.mirdwt <- mirdwt(ret.mrdwt$yl, ret.mrdwt$yh, h$h.0, ret.mrdwt$L);
+sig <- makesig(SIGNAL.LEOPOLD, 8)
+h <- daubcqf(4)
+L <- 1
+ret.mrdwt <- mrdwt(sig$x, h$h.0, L)
+ret.mirdwt <- mirdwt(ret.mrdwt$yl, ret.mrdwt$yh, h$h.0, ret.mrdwt$L)
 }
 \keyword{interface}
 

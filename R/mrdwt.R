@@ -4,10 +4,11 @@
 #
 
 ##-----------------------------------------------------------------------------
-mrdwt <- function(x, h, L)
-    .Call("rwt_mrdwt",
+mrdwt <- function(x, h, L) {
+    .Call("do_mrdwt",
           as.matrix(x),
           as.vector(h),
           as.integer(L),
-          PACKAGE="rwt");
+          PACKAGE="rwt")
+}
 

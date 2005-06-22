@@ -1,5 +1,5 @@
 /*
- * File Name: rwt_midwt.c
+ * File Name: do_midwt.c
  *
  * .Call interface to inverse discrete wavelet transform method
  *
@@ -9,8 +9,8 @@
 
 #include <R.h>
 #include <Rdefines.h>
-#include "rwt_midwt.h"
-#include "rwt_util.h"
+#include "do_midwt.h"
+#include "do_util.h"
 
 
 /*
@@ -22,7 +22,7 @@
 /*
  * Public
  */
-SEXP rwt_midwt(SEXP vntY, SEXP vntH, SEXP vntL)
+SEXP do_midwt(SEXP vntY, SEXP vntH, SEXP vntL)
 {
     SEXP vntOut;
     SEXP vntX;
@@ -31,7 +31,7 @@ SEXP rwt_midwt(SEXP vntY, SEXP vntH, SEXP vntL)
     int m, n, lh, L;
 
 #ifdef DEBUG_RWT
-    REprintf("In rwt_midwt(y, h, L)...\n");
+    REprintf("In do_midwt(y, h, L)...\n");
 #endif
 
     /*

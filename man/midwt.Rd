@@ -1,6 +1,6 @@
 \name{midwt}
 \alias{midwt}
-\title{inverse discrete wavelet transform function}
+\title{Inverse Discrete Wavelet Transform}
 \description{
   Computes the inverse discrete wavelet transform \code{x} for
   input signal \code{y} using the scaling filter \code{h}.
@@ -26,11 +26,11 @@ for maximal possible L.
 \references{ ~put references to the literature/web site here ~ }
 \author{P. Roebuck, \email{roebuck@mdanderson.org}}
 \examples{
-sig <- makesig(SIGNAL.LIN.CHIRP, 8);
-h <- daubcqf(4);
-L <- 1;
-ret.mdwt <- mdwt(sig$x, h$h.0, L);
-ret.midwt <- midwt(ret.mdwt$y, h$h.0, ret.mdwt$L);
+sig <- makesig(SIGNAL.LIN.CHIRP, 8)
+h <- daubcqf(4)
+L <- 1
+ret.mdwt <- mdwt(sig$x, h$h.0, L)
+ret.midwt <- midwt(ret.mdwt$y, h$h.0, ret.mdwt$L)
 }
 \keyword{interface}
 

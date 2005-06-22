@@ -4,18 +4,16 @@
 
 library(rwt)
 
-test.mrdwt <- function(signal, filter, nlevels, expected) {
-   result <- mrdwt(signal, filter, nlevels);
+test.mrdwt <- function(input, expected) {
+   result <- rwt::mrdwt(input$signal, input$filter, input$nlevels)
    identical(all.equal(result,
                        expected,
                        tolerance = 0.0000001),
-             TRUE);
+             TRUE)
 }
 
-sig <- makesig(SIGNAL.LEOPOLD, 8);
-h <- daubcqf(4, PHASE.MINIMUM);
-L <- 1;
-
+sig <- rwt::makesig(SIGNAL.LEOPOLD, 8)
+h <- rwt::daubcqf(4, PHASE.MINIMUM)
 mrdwt.expected <- list(yl = matrix(data = c( 0.8365163,
                                              0.4829629,
                                              0,
@@ -32,7 +30,7 @@ mrdwt.expected <- list(yl = matrix(data = c( 0.8365163,
                                              0,
                                             -0.4829629,
                                              0.8365163)),
-                       L = 1);
+                       L = 1)
 
-test.mrdwt(sig$x, h$h.0, L, mrdwt.expected);
+test.mrdwt(list(signal = sig$x, filter = h$h.0, nlevels = 1), mrdwt.expected)
 

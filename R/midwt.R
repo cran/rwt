@@ -4,10 +4,11 @@
 #
 
 ##-----------------------------------------------------------------------------
-midwt <- function(y, h, L)
-    .Call("rwt_midwt",
+midwt <- function(y, h, L) {
+    .Call("do_midwt",
           as.matrix(y),
           as.vector(h),
           as.integer(L),
-          PACKAGE="rwt");
+          PACKAGE="rwt")
+}
 

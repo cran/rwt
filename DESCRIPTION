@@ -1,11 +1,11 @@
 Package: rwt
-Version: 0.9-0
-Date: 2004-09-01
+Version: 0.9-1
+Date: 2005-06-22
 Title: Rice Wavelet Toolbox wrapper
-Author: P. Roebuck <roebuck@mdanderson.org>, based on MATLAB extension by Rice University's DSP group
+Author: P. Roebuck <roebuck@mdanderson.org>, Rice University's DSP group
 Maintainer: P. Roebuck <roebuck@mdanderson.org>
 Description: Provides a set of functions for performing digital signal processing
-Depends: R (>= 1.8.1), matlab
+Depends: R (>= 1.9), matlab
 License: See file COPYING for license information
 URL: http://odin.mdacc.tmc.edu/~roebuck/R/index.html#rwt
-Packaged: Tue Nov 16 09:46:28 2004; roebuck
+Packaged: Fri Jun 24 13:25:29 2005; paulr

@@ -1,5 +1,5 @@
 /*
- * RWT_MIRDWT.H
+ * DO_MIRDWT.H
  *
  * Public include for .Call interface to MIRDWT 
  *
@@ -7,8 +7,8 @@
  * Created by Paul Roebuck, Department of Bioinformatics, MDACC.
  */
 
-#ifndef RWT_MIRDWT_H
-#define RWT_MIRDWT_H	1
+#ifndef DO_MIRDWT_H
+#define DO_MIRDWT_H	1
 
 #include <Rdefines.h>
 #include "mirdwt.h"
@@ -17,11 +17,11 @@
 /*
  * Function Declarations
  */
-extern SEXP rwt_mirdwt(
+extern SEXP do_mirdwt(
   SEXP vntYl,
   SEXP vntYh,
   SEXP vntH,
   SEXP vntL);
 
-#endif /* RWT_MIRDWT_H */
+#endif /* DO_MIRDWT_H */
 
