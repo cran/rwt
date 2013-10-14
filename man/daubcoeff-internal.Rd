@@ -8,7 +8,7 @@
 .getDaubechiesCoefficients(N)
 }
 \arguments{
-  \item{N}{Number of coefficients desired}
+  \item{N}{numeric scalar specifying number of coefficients desired}
 }
 \value{
   Returns a vector containing coefficients.
@@ -19,6 +19,8 @@
 \references{
   \url{http://cas.ensmp.fr/~chaplais/Wavetour_presentation/Tables/Daubechies/}
 }
-\author{P. Roebuck, \email{roebuck@mdanderson.org}}
+\author{
+  P. Roebuck \email{proebuck@mdanderson.org}
+}
 \keyword{internal}
 

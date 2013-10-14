@@ -1,7 +1,7 @@
-#
-# DAUBCQF.R - Computes the Daubechies' scaling and wavelet filters
-#             (normalized to sqrt(2)).
-#
+###
+### DAUBCQF.R - Computes the Daubechies' scaling and wavelet filters
+###             (normalized to sqrt(2)).
+###
 
 PHASE.MINIMUM <- 'min'
 PHASE.MID     <- 'mid'
@@ -9,7 +9,7 @@ PHASE.MAXIMUM <- 'max'
 
 
 ##-----------------------------------------------------------------------------
-daubcqf <- function(N, type = PHASE.MINIMUM) {
+daubcqf <- function(N, type=PHASE.MINIMUM) {
 #%    [h_0,h_1] = daubcqf(N,TYPE);
 #%
 #%    Function computes the Daubechies' scaling and wavelet filters
@@ -37,21 +37,19 @@ daubcqf <- function(N, type = PHASE.MINIMUM) {
 #%
 
     if (!(is.numeric(N) && length(N) == 1)) {
-        stop(paste("argument", sQuote("N"), "must be numeric scalar"))
+        stop(sprintf("argument %s must be numeric scalar",
+                     sQuote("N")))
     }
 
     if (N <= 0) {
-        stop(paste("filter length cannot be negative (",
-                   sQuote("N"), " = ", N, ")",
-                   sep = ""))
+        stop(sprintf("filter length cannot be negative (%s = %s)",
+                     sQuote("N"),
+                     N))
     }
 
-# PLR: Minimal parameter checking performed for 'type'
-
     if (type == PHASE.MID) {
-        stop(paste("code not implemented for (",
-                   sQuote("type"), " = PHASE.MID)",
-                   sep = ""))
+        stop(sprintf("code not implemented for (%s = PHASE.MID)",
+                     sQuote("type")))
     }
 
     h.0 <- .getDaubechiesCoefficients(N)
@@ -61,14 +59,14 @@ daubcqf <- function(N, type = PHASE.MINIMUM) {
     }
 
     if (abs(sum(h.0 ^ 2)) - 1 > 1e-4) {
-        stop(paste("numerically unstable for this value of ", sQuote("N"),
-                   sep = ""))
+        stop(sprintf("numerically unstable for this value of %s",
+                     sQuote("N")))
     }
 
     h.1 <- matlab::rot90(as.matrix(h.0), 2)
     h.1[seq(1, N, by = 2)] <- -h.1[seq(1, N, by = 2)]
 
-    return(list(h.0 = as.vector(h.0),
-                h.1 = as.vector(h.1)))
+    list(h.0 = as.vector(h.0),
+         h.1 = as.vector(h.1))
 }
 

@@ -1,13 +1,11 @@
-#
-# DENOISE.R - Demo
-#
+###
+### DENOISE.R - Demo
+###
 
-cat("************************************", "\n")
-cat("Loading 'rwt' package...", "\n")
 library("rwt")
 
-cat("************************************", "\n")
-cat("Creating doppler signal for test", "\n")
+message("************************************")
+message("Creating doppler signal for test")
 
 sig <- makesig(SIGNAL.DOPPLER)
 s <- as.vector(sig$x)
@@ -16,11 +14,11 @@ n <- rnorm(N)
 
 x <- s + n/10     # (approximately 10dB SNR)
 
-cat("Get Daubechies's scaling filter", "\n")
+message("Get Daubechies's scaling filter")
 h <- daubcqf(8)$h.0
 
-# Denoise x with the default method based on the DWT
-cat("Denoise signal using DWT", "\n")
+## Denoise 'x' with the default method based on the DWT
+message("Denoise signal using DWT")
 #debug(.dwt)
 #debug(mdwt)
 #debug(midwt)
@@ -29,8 +27,8 @@ xd <- ret.dwt$xd
 xn <- ret.dwt$xn
 opt1 <- ret.dwt$option
 
-# Denoise x using the undecimated (LSI) wavelet transform
-cat("Denoise signal using UDWT", "\n")
+## Denoise 'x' using the undecimated (LSI) wavelet transform
+message("Denoise signal using UDWT")
 #debug(.udwt)
 #debug(mrdwt)
 #debug(mirdwt)
@@ -39,16 +37,12 @@ yd <- ret.udwt$xd
 yn <- ret.udwt$xn
 opt2 <- ret.udwt$option
 
-# Plot results
-grdev <- function() {
-    get(getOption("device"))()
-}
-
-cat("Plot results", "\n")
-grdev()
+## Plot results
+message("Plot results")
+dev.new()
 plotSignalTransformation(x, s, "Original")
-grdev()
+dev.new()
 plotSignalTransformation(xd, s, "Decimated Wavelet Transform")
-grdev()
+dev.new()
 plotSignalTransformation(yd, s, "Undecimated Wavelet Transform")
 

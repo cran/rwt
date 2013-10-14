@@ -1,22 +1,24 @@
-#
-# MIRDWT.R
-#
+###
+### MIRDWT.R
+###
 
+options(warn=1)
 library(rwt)
 
+
+##-----------------------------------------------------------------------------
 test.mirdwt <- function(input, expected) {
    ret.mrdwt <- rwt::mrdwt(input$signal, input$filter, input$nlevels)
    yl <- ret.mrdwt$yl
    yh <- ret.mrdwt$yh
    L  <- ret.mrdwt$L
    result <- rwt::mirdwt(yl, yh, input$filter, L)
-   #print(result)
-   #print(expected)
    identical(all.equal(result,
                        expected,
-                       tolerance = 1e-17),
+                       tolerance=1e-17),
              TRUE)
 }
+
 
 sig <- rwt::makesig(SIGNAL.LEOPOLD, 8)
 h <- rwt::daubcqf(4, PHASE.MINIMUM)

@@ -28,20 +28,20 @@ denoise.udwt(x, h, option = default.udwt.option)
 }
 \arguments{
   \item{x}{1D or 2D signal to be denoised}
-  \item{h}{Scaling filter to be applied}
-  \item{type}{Type of transform. Valid values are:
+  \item{h}{numeric scalar specifying scaling filter to be applied}
+  \item{type}{type of transform. Valid values are:
   \tabular{l}{
     \code{DWT.TRANSFORM.TYPE}\cr
     \code{UDWT.TRANSFORM.TYPE}
   }}
-  \item{option}{List containing desired transformation settings}
+  \item{option}{list containing desired transformation settings}
 }
 \details{
   The transformation settings in the \code{option} list are:
 
   \describe{
     \item{threshold.low.pass.part:}{
-Logical flag. If \code{TRUE}, threshold the low-pass component.}
+      logical scalar. If \code{TRUE}, threshold the low-pass component.}
     \item{threshold.multiplier:}{\code{thld = c*MAD(noise_estimate)} }
     \item{variance.estimator:}{Valid values are:
       \tabular{ll}{
@@ -55,27 +55,28 @@ Logical flag. If \code{TRUE}, threshold the low-pass component.}
         HARD.THRESHOLD.TYPE \tab Hard thresholding
       }
     }
-    \item{num.decompression.levels:}{Number of levels in wavelet
-decomposition. Setting this to \code{MAX.DECOMPOSITION} will allow
-maximal decomposition.
+    \item{num.decompression.levels:}{number of levels in wavelet
+      decomposition. Setting this to \code{MAX.DECOMPOSITION} will allow
+      maximal decomposition.
     }
-    \item{threshold:}{Actual threshold to use. Setting this to
-anything but \code{CALC.THRESHOLD.TO.USE} will disable the
-\code{variance.estimator} setting.
+    \item{threshold:}{actual threshold to use. Setting this to anything but
+      \code{CALC.THRESHOLD.TO.USE} will disable the \code{variance.estimator}
+      setting.
     }
   }
 }
 \value{
   Returns a list with components:
-    \item{xd}{Estimate of noise free signal}
-    \item{xn}{Estimated noise signal (\code{x}-\code{xd})}
-    \item{option}{List of actual parameters used. It is configured
+    \item{xd}{estimate of noise free signal}
+    \item{xn}{estimated noise signal (\code{x}-\code{xd})}
+    \item{option}{list of actual parameters used. It is configured
       the same way as the input option list with an additional
       element - \code{option[[7]] = type}.
     }
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{P. Roebuck, \email{roebuck@mdanderson.org}}
+\author{
+  P. Roebuck \email{proebuck@mdanderson.org}
+}
 \note{
 Both \code{denoise.dwt} and \code{denoise.udwt} are convenience routines
 that call the \code{denoise} routine with appropriate default arguments.

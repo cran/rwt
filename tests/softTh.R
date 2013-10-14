@@ -1,16 +1,20 @@
-#
-# SOFTTH.R
-#
+###
+### SOFTTH.R
+###
 
+options(warn=1)
 library(rwt)
 
+
+##-----------------------------------------------------------------------------
 test.softTh <- function(input, expected) {
    result <- rwt::softTh(input$signal, input$thld)
    identical(all.equal(as.vector(result),
                        expected,
-                       tolerance = 0.000001),
+                       tolerance=0.000001),
              TRUE)
 }
+
 
 sig <- rwt::makesig(SIGNAL.DOPPLER, 8)
 softTh.expected <- c( 0.0,

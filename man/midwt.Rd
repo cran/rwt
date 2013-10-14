@@ -23,8 +23,9 @@ for maximal possible L.
     \item{x}{Periodic reconstructed signal}
     \item{L}{Number of levels in wavelet decomposition}
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{P. Roebuck, \email{roebuck@mdanderson.org}}
+\author{
+  P. Roebuck \email{proebuck@mdanderson.org}
+}
 \examples{
 sig <- makesig(SIGNAL.LIN.CHIRP, 8)
 h <- daubcqf(4)

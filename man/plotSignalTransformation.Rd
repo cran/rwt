@@ -8,15 +8,17 @@
 plotSignalTransformation(x, s, title, col.x = 'blue', col.s = 'red')
 }
 \arguments{
-  \item{x}{Wavelet transformed signal to be plotted}
-  \item{s}{Original signal to be plotted}
-  \item{title}{Overall title for the plot}
-  \item{col.x}{Color to be used for plotting \code{x} values as lines}
-  \item{col.s}{Color to be used for plotting \code{s} values as lines}
+  \item{x}{wavelet transformed signal to be plotted}
+  \item{s}{original signal to be plotted}
+  \item{title}{overall title for the plot}
+  \item{col.x}{color to be used for plotting \code{x} values as lines}
+  \item{col.s}{color to be used for plotting \code{s} values as lines}
 }
 \details{
   Used by demo code to display the results of a transformation.
 }
-\author{P. Roebuck, \email{roebuck@mdanderson.org}}
-\keyword{interface}
+\author{
+  P. Roebuck \email{proebuck@mdanderson.org}
+}
+\keyword{hplot}
 

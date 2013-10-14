@@ -1,16 +1,20 @@
-#
-# MRDWT.R
-#
+###
+### MRDWT.R
+###
 
+options(warn=1)
 library(rwt)
 
+
+##-----------------------------------------------------------------------------
 test.mrdwt <- function(input, expected) {
    result <- rwt::mrdwt(input$signal, input$filter, input$nlevels)
    identical(all.equal(result,
                        expected,
-                       tolerance = 0.0000001),
+                       tolerance=0.0000001),
              TRUE)
 }
+
 
 sig <- rwt::makesig(SIGNAL.LEOPOLD, 8)
 h <- rwt::daubcqf(4, PHASE.MINIMUM)

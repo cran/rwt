@@ -1,6 +1,6 @@
-#
-# MAKESIG.R - Creates artificial test signal
-#
+###
+### MAKESIG.R - Creates artificial test signal
+###
 
 SIGNAL.ALL            <- "AllSig"
 SIGNAL.HEAVI.SINE     <- "HeaviSine"
@@ -20,108 +20,135 @@ SIGNAL.WERNER.SORROWS <- "Werner Sorrows"  #(Heisenberg)
 SIGNAL.LEOPOLD        <- "Leopold"         #(Kronecker)
 
 
-#
-# Public
-#
+##
+## Public
+##
+
 ##------------------------------------------------------------------------------
-makesig <- function(sigName = SIGNAL.ALL, N = 512) {
+makesig <- function(sigName=SIGNAL.ALL, N=512) {
     if (!(.isValidSignal(sigName))) {
-        stop(paste("argument", sQuote("sigName"), "specifies unknown signal"))
+        stop(sprintf("argument %s specifies unknown signal",
+                     sQuote("sigName")))
+    }
+    if (!is.numeric(N)) {
+        stop(sprintf("argument %s must be numeric",
+                     sQuote("N")))
+    } else if (length(N) != 1) {
+        stop(sprintf("argument %s must be of length 1",
+                     sQuote("N")))
     }
 
     tN <- (1:N) / N
-    x <- NULL
+    nsigs <- if (sigName != SIGNAL.ALL) 1 else 15
+    x <- matrix(as.numeric(NA), nrow=nsigs, ncol=N, byrow=TRUE)
+    i <- 1
 
     if ((sigName == SIGNAL.HEAVI.SINE) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.heavi.sine(N, tN)
-        x <- rbind(x, y)
+        x[i, ] <- t(y)
+        i <- i + 1
     }
   
     if ((sigName == SIGNAL.BUMPS) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.bumps(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
   
     if ((sigName == SIGNAL.BLOCKS) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.blocks(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
   
     if ((sigName == SIGNAL.DOPPLER) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.doppler(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.RAMP) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.ramp(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.CUSP) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.cusp(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.SING) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.sing(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.HI.SINE) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.hi.sine(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.LO.SINE) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.lo.sine(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.LIN.CHIRP) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.lin.chirp(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.TWO.CHIRP) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.two.chirp(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.QUAD.CHIRP) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.quad.chirp(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.MISH.MASH) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.mish.mash(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.WERNER.SORROWS) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.werner.sorrows(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
     if ((sigName == SIGNAL.LEOPOLD) | (sigName == SIGNAL.ALL)) {
         y <- .makesig.leopold(N, tN)
-        x <- rbind(x, t(y))
+        x[i, ] <- t(y)
+        i <- i + 1
     }
 
-    return(list(x = x,
-                N = N))
+    list(x = x,
+         N = N)
 }
 
 
-#
-# Private
-#
+##
+## Private
+##
+
 ##------------------------------------------------------------------------------
 .makesig.heavi.sine <- function(N, t) {
     y <- 4 * sin((4 * pi) * t)
     y <- y - sign(t - 0.3) - sign(0.72 - t)
 
     #cat("HeaviSine: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -136,7 +163,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     }
 
     #cat("Bumps: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -150,7 +177,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     }
   
     #cat("Blocks: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -159,7 +186,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- sqrt(t * (1 - t)) * sin((2 * pi * 1.05) / (t + 0.05))
 
     #cat("Doppler: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -168,7 +195,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- t - (t >= 0.37)
 
     #cat("Ramp: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -177,7 +204,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- sqrt(abs(t - 0.37))
 
     #cat("Cusp: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -187,7 +214,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- 1 / abs(t - (k + 0.5) / N)
 
     #cat("Sing: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -196,7 +223,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- sin(pi * (N * 0.6902) * t)
 
     #cat("HiSine: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -205,7 +232,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- sin(pi * (N * 0.3333) * t)
 
     #cat("LoSine: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -214,7 +241,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- sin(pi * t * ((N * 0.125) * t))
 
     #cat("LinChirp: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -223,7 +250,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- sin(pi * t * (N * t)) + sin((pi / 3) * t * (N * t))
 
     #cat("TwoChirp: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -232,7 +259,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- sin((pi / 3) * t * (N * t ^ 2))
 
     #cat("QuadChirp: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -244,7 +271,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- y + sin(pi * t * (N * 0.125 * t))
 
     #cat("MishMash: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -261,7 +288,7 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     }
 
     #cat("WernerSorrows: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
@@ -270,29 +297,29 @@ makesig <- function(sigName = SIGNAL.ALL, N = 512) {
     y <- (t == floor(0.37 * N) / N) 		# Kronecker
 
     #cat("Leopold: y = [", y, "]\n")
-    return(y)
+    y
 }
 
 
 ##------------------------------------------------------------------------------
 .isValidSignal <- function(sigName) {
-    .signals <- c(SIGNAL.ALL,
-                  SIGNAL.HEAVI.SINE,
-                  SIGNAL.BUMPS,
-                  SIGNAL.BLOCKS,
-                  SIGNAL.DOPPLER,
-                  SIGNAL.RAMP,
-                  SIGNAL.CUSP,
-                  SIGNAL.SING,
-                  SIGNAL.HI.SINE,
-                  SIGNAL.LO.SINE,
-                  SIGNAL.LIN.CHIRP,
-                  SIGNAL.TWO.CHIRP,
-                  SIGNAL.QUAD.CHIRP,
-                  SIGNAL.MISH.MASH,
-                  SIGNAL.WERNER.SORROWS,
-                  SIGNAL.LEOPOLD)
+    signals <- c(SIGNAL.ALL,
+                 SIGNAL.HEAVI.SINE,
+                 SIGNAL.BUMPS,
+                 SIGNAL.BLOCKS,
+                 SIGNAL.DOPPLER,
+                 SIGNAL.RAMP,
+                 SIGNAL.CUSP,
+                 SIGNAL.SING,
+                 SIGNAL.HI.SINE,
+                 SIGNAL.LO.SINE,
+                 SIGNAL.LIN.CHIRP,
+                 SIGNAL.TWO.CHIRP,
+                 SIGNAL.QUAD.CHIRP,
+                 SIGNAL.MISH.MASH,
+                 SIGNAL.WERNER.SORROWS,
+                 SIGNAL.LEOPOLD)
 
-    return(!is.na(pmatch(sigName, .signals)))
+    !is.na(pmatch(sigName, signals))
 }
 

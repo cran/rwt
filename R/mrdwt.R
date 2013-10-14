@@ -1,7 +1,7 @@
-#
-# MRDWT.R - Computes the redundant discrete wavelet transform y
-#           for a 1D or 2D input signal.
-#
+###
+### MRDWT.R - Computes the redundant discrete wavelet transform y
+###           for a 1D or 2D input signal.
+###
 
 ##-----------------------------------------------------------------------------
 mrdwt <- function(x, h, L) {

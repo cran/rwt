@@ -1,16 +1,20 @@
-#
-# DAUBCQF.R
-#
+###
+### DAUBCQF.R
+###
 
+options(warn=1)
 library(rwt)
 
+
+##-----------------------------------------------------------------------------
 test.daubcqf <- function(input, expected) {
    result <- daubcqf(input$N, input$type)
    identical(all.equal(result,
                        expected,
-                       tolerance = 0.0000001),
+                       tolerance=0.0000001),
              TRUE)
 }
+
 
 daubcqf.expected <- list(h.0 = c( 0.4829629,
                                   0.8365163,

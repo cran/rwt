@@ -1,16 +1,20 @@
-#
-# HARDTH.R
-#
+###
+### HARDTH.R
+###
 
+options(warn=1)
 library(rwt)
 
+
+##-----------------------------------------------------------------------------
 test.hardTh <- function(input, expected) {
    result <- rwt::hardTh(input$signal, input$thld)
    identical(all.equal(as.vector(result),
                        expected,
-                       tolerance = 0.000001),
+                       tolerance=0.000001),
              TRUE)
 }
+
 
 sig <- rwt::makesig(SIGNAL.WERNER.SORROWS, 8)
 hardTh.expected <- c( 1.554523,

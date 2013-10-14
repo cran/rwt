@@ -1,15 +1,16 @@
-#
-# SOFTTH.R
-#
+###
+### SOFTTH.R
+###
 
-#
-# Public
-#
+##
+## Public
+##
+
 ##-----------------------------------------------------------------------------
 softTh <- function(y, thld) {
     x <- abs(y)
     x <- sign(y) * (x >= thld) * (x - thld)
 
-    return(x)
+    x
 }
 

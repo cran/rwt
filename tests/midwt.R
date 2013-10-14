@@ -1,9 +1,12 @@
-#
-# MIDWT.R
-#
+###
+### MIDWT.R
+###
 
+options(warn=1)
 library(rwt)
 
+
+##-----------------------------------------------------------------------------
 test.midwt <- function(input, expected) {
    ret.mdwt <- rwt::mdwt(input$signal, input$filter, input$nlevels)
    y <- ret.mdwt$y
@@ -11,9 +14,10 @@ test.midwt <- function(input, expected) {
    result <- rwt::midwt(y, input$filter, L)
    identical(all.equal(result,
                        expected,
-                       tolerance = 0.000001),
+                       tolerance=0.000001),
              TRUE)
 }
+
 
 sig <- rwt::makesig(SIGNAL.LIN.CHIRP, 8)
 h <- rwt::daubcqf(4, PHASE.MINIMUM)

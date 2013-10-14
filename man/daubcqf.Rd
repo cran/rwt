@@ -11,7 +11,7 @@
 daubcqf(N, type = PHASE.MINIMUM)
 }
 \arguments{
-  \item{N}{Length of filter (must be even)}
+  \item{N}{numeric scalar specifying length of filter (must be even)}
   \item{type}{Distinguishes the minimum phase, maximum phase and mid-phase
 solutions. Valid values are:
   \tabular{l}{
@@ -22,13 +22,16 @@ solutions. Valid values are:
 }
 \value{
   Returns a list with components:
-    \item{h.0}{Minimal phase Daubechies' scaling filter}
-    \item{h.1}{Minimal phase Daubechies' wavelet filter}
+    \item{h.0}{minimal phase Daubechies' scaling filter}
+    \item{h.1}{minimal phase Daubechies' wavelet filter}
 }
 \references{
-  \cite{"Orthonormal Bases of Compactly Supported Wavelets", CPAM, Oct.89}
+  \emph{Orthonormal Bases of Compactly Supported Wavelets}\cr
+  CPAM (Oct.89)
 }
-\author{P. Roebuck, \email{roebuck@mdanderson.org}}
+\author{
+  P. Roebuck \email{proebuck@mdanderson.org}
+}
 \examples{
 h <- daubcqf(6)
 }

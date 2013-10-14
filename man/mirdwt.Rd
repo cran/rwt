@@ -26,8 +26,9 @@ for maximal possible L.
     \item{x}{Finite length 1D or 2D signal}
     \item{L}{Number of levels in wavelet decomposition}
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{P. Roebuck, \email{roebuck@mdanderson.org}}
+\author{
+  P. Roebuck \email{proebuck@mdanderson.org}
+}
 \examples{
 sig <- makesig(SIGNAL.LEOPOLD, 8)
 h <- daubcqf(4)

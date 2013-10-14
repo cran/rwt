@@ -11,16 +11,19 @@ softTh(y, thld)
 }
 \arguments{
   \item{y}{1D or 2D signal to be thresholded}
-  \item{thld}{Threshold value to be applied}
+  \item{thld}{numeric threshold value to be applied}
 }
 \value{
   \item{x}{Thresholded output}
 }
 \references{
-  \cite{"De-noising via Soft-Thresholding" Tech. Rept. Statistics,
-       Stanford, 1992. D.L. Donoho.}
+  D.L. Donoho\cr
+  \emph{De-noising via Soft-Thresholding}\cr
+  Tech. Rept. Statistics, Stanford (1992)
 }
-\author{P. Roebuck, \email{roebuck@mdanderson.org}}
+\author{
+  P. Roebuck \email{proebuck@mdanderson.org}
+}
 \examples{
 sig <- makesig(SIGNAL.WERNER.SORROWS, 8)
 thld <- 1

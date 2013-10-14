@@ -1,8 +1,8 @@
-#
-# DAUBCOEFF.R
-#
+###
+### DAUBCOEFF.R
+###
 
-##-----------------------------------------------------------------------------
+
 .daubCoeffP2 <-
     c( 0.482962913145,
        0.836516303738,
@@ -129,14 +129,17 @@
        0.000093588670,
       -0.000013264203)
 
+
 ##-----------------------------------------------------------------------------
 .getDaubechiesCoefficients <- function(N) {
     if (!(is.numeric(N) && (N > 0))) {
-        stop(paste("argument", sQuote("N"), "must be natural number"))
+        stop(sprintf("argument %s must be natural number",
+                     sQuote("N")))
     }
 
     if (N %% 2) {
-        stop(paste("argument", sQuote("N"), "must be even number"))
+        stop(sprintf("argument %s must be even number",
+                     sQuote("N")))
     }
 
     coeff <- switch(as.character(N),
@@ -149,10 +152,10 @@
                     "16" = .daubCoeffP8,
                     "18" = .daubCoeffP9,
                     "20" = .daubCoeffP10,
-                    stop(paste("This version only supports (",
-                               sQuote("N"),
-                               "= 4|6|8|10|12|14|16|18|20)")))
+                    stop(sprintf("implementation only supports (%s = %s)",
+                                 sQuote("N"),
+                                 paste(seq(4, 20, by=2), collapse="|"))))
 
-    return(coeff)
+    coeff
 }
 

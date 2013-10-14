@@ -26,34 +26,37 @@
 makesig(sigName, N)
 }
 \arguments{
-  \item{sigName}{Name of desired signal. Valid values are:
-  \tabular{l}{
-    SIGNAL.ALL\cr
-    SIGNAL.HEAVI.SINE\cr
-    SIGNAL.BUMPS\cr
-    SIGNAL.BLOCKS\cr
-    SIGNAL.DOPPLER\cr
-    SIGNAL.RAMP\cr
-    SIGNAL.CUSP\cr
-    SIGNAL.SING\cr
-    SIGNAL.HI.SINE\cr
-    SIGNAL.LO.SINE\cr
-    SIGNAL.LIN.CHIRP\cr
-    SIGNAL.TWO.CHIRP\cr
-    SIGNAL.QUAD.CHIRP\cr
-    SIGNAL.MISH.MASH\cr
-    SIGNAL.WERNER.SORROWS (Heisenburg)\cr
-    SIGNAL.LEOPOLD (Kronecker)
-  }}
-  \item{N}{Length in samples of desired signal (512 by default)}
+  \item{sigName}{character string specifying name of desired signal.
+    Valid values are:
+    \tabular{l}{
+      SIGNAL.ALL\cr
+      SIGNAL.HEAVI.SINE\cr
+      SIGNAL.BUMPS\cr
+      SIGNAL.BLOCKS\cr
+      SIGNAL.DOPPLER\cr
+      SIGNAL.RAMP\cr
+      SIGNAL.CUSP\cr
+      SIGNAL.SING\cr
+      SIGNAL.HI.SINE\cr
+      SIGNAL.LO.SINE\cr
+      SIGNAL.LIN.CHIRP\cr
+      SIGNAL.TWO.CHIRP\cr
+      SIGNAL.QUAD.CHIRP\cr
+      SIGNAL.MISH.MASH\cr
+      SIGNAL.WERNER.SORROWS (Heisenburg)\cr
+      SIGNAL.LEOPOLD (Kronecker)
+    }}
+  \item{N}{numeric scalar specifying length in samples of desired signal
+    (512 by default)}
 }
 \value{
   Returns a list with components:
     \item{x}{vector (or matrix) of test signals}
     \item{N}{length of signal returned}
 }
-\references{ ~put references to the literature/web site here ~ }
-\author{P. Roebuck, \email{roebuck@mdanderson.org}}
+\author{
+  P. Roebuck \email{proebuck@mdanderson.org}
+}
 \note{
 Using the value \code{SIGNAL.ALL.SIG} for \var{sigName} returns a matrix 
 containing the vectors of all the other signals.

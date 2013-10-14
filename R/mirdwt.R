@@ -1,7 +1,7 @@
-#
-# MIRDWT.R - Computes the inverse redundant discrete wavelet 
-#            transform x for a 1D or 2D input signal.
-#
+###
+### MIRDWT.R - Computes the inverse redundant discrete wavelet 
+###            transform x for a 1D or 2D input signal.
+###
 
 ##-----------------------------------------------------------------------------
 mirdwt <- function(yl, yh, h, L) {
