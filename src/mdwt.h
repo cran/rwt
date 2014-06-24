@@ -1,5 +1,5 @@
 /*
- * File Name: mdwt.h
+ * $Id: mdwt.h 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Public include for discrete wavelet transform method 
  *

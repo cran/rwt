@@ -1,8 +1,13 @@
 ###
-### NAMESPACE
+### $Id: NAMESPACE 60 2014-06-24 20:46:07Z plroebuck $
 ###
 
-useDynLib(rwt)
+useDynLib(rwt, .registration=TRUE)
+
+##
+## Imported methods
+##
+import(matlab)
 
 ##
 ## Public functions

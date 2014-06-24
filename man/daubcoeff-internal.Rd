@@ -1,3 +1,5 @@
+% $Id: daubcoeff-internal.Rd 24 2014-06-20 21:02:03Z plroebuck $
+
 \name{daubcoeff}
 \alias{.getDaubechiesCoefficients}
 \title{Daubechies Coefficients}

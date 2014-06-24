@@ -1,5 +1,5 @@
 ###
-### DENOISE.R
+### $Id: denoise.R 22 2014-06-20 20:59:33Z plroebuck $
 ###
 
 ## Enumerated Values

@@ -1,5 +1,5 @@
 /*
- * File Name: do_midwt.c
+ * $Id: do_midwt.c 26 2014-06-20 21:04:35Z plroebuck $
  *
  * .Call interface to inverse discrete wavelet transform method
  *

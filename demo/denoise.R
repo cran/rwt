@@ -1,5 +1,6 @@
 ###
-### DENOISE.R - Demo
+### $Id: denoise.R 58 2014-06-24 20:27:34Z plroebuck $
+### Package Demo
 ###
 
 library("rwt")

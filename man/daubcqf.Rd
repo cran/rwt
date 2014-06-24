@@ -1,3 +1,5 @@
+% $Id: daubcqf.Rd 24 2014-06-20 21:02:03Z plroebuck $
+
 \name{daubcqf}
 \alias{daubcqf}
 \alias{PHASE.MINIMUM}
@@ -14,11 +16,12 @@ daubcqf(N, type = PHASE.MINIMUM)
   \item{N}{numeric scalar specifying length of filter (must be even)}
   \item{type}{Distinguishes the minimum phase, maximum phase and mid-phase
 solutions. Valid values are:
-  \tabular{l}{
-    \code{PHASE.MINIMUM}\cr
-    \code{PHASE.MID}\cr
-    \code{PHASE.MAXIMUM}
-  }}
+    \tabular{l}{
+      \code{PHASE.MINIMUM}\cr
+      \code{PHASE.MID}\cr
+      \code{PHASE.MAXIMUM}
+    }
+  }
 }
 \value{
   Returns a list with components:

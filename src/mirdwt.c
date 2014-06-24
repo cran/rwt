@@ -1,5 +1,5 @@
 /*
- * File Name: mirdwt.c
+ * $Id: mirdwt.c 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Inverse redundant discrete wavelet transform method
  *

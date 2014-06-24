@@ -1,6 +1,33 @@
 
         **************************************************
         *                                                *
+        *              1.0 SERIES NEWS                   *
+        *                                                *
+        **************************************************
+
+
+                CHANGES IN R VERSION 1.0.0
+
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o   Dropped compatibility for anything less than R-2.15 as
+        no longer able to test against previous versions of R.
+
+
+NEW FEATURES
+
+    o   After almost a decade, now has a production release number.
+
+    o   Added SVN revision information to many of the package files.
+
+    o   Added COPYRIGHTS file in Debian standard, machine-readable format.
+
+    o   Added manpage for package itself.
+
+
+        **************************************************
+        *                                                *
         *              0.9 SERIES NEWS                   *
         *                                                *
         **************************************************

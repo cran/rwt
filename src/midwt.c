@@ -1,5 +1,5 @@
 /*
- * File Name: midwt.c
+ * $Id: midwt.c 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Inverse discrete wavelet transform method
  *

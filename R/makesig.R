@@ -1,5 +1,6 @@
 ###
-### MAKESIG.R - Creates artificial test signal
+### $Id: makesig.R 22 2014-06-20 20:59:33Z plroebuck $
+### Creates artificial test signal
 ###
 
 SIGNAL.ALL            <- "AllSig"

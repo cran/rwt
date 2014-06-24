@@ -1,5 +1,5 @@
 /*
- * File Name: mrdwt.c
+ * $Id: mrdwt.c 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Redundant discrete wavelet transform method
  *

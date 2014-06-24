@@ -1,5 +1,5 @@
 /*
- * File Name: do_mrdwt.c
+ * $Id: do_mrdwt.c 26 2014-06-20 21:04:35Z plroebuck $
  *
  * .Call interface to redundant discrete wavelet transform method
  *

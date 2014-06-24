@@ -1,5 +1,5 @@
 /*
- * File Name: mrdwt.h
+ * $Id: mrdwt.h 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Public include for redundant discrete wavelet transform method
  *

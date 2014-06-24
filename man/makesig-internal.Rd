@@ -1,3 +1,5 @@
+% $Id: makesig-internal.Rd 24 2014-06-20 21:02:03Z plroebuck $
+
 \name{Internal Functions}
 \alias{.makesig.heavi.sine}
 \alias{.makesig.bumps}

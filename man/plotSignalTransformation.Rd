@@ -1,3 +1,5 @@
+% $Id: plotSignalTransformation.Rd 24 2014-06-20 21:02:03Z plroebuck $
+
 \name{plotSignalTransformation}
 \alias{plotSignalTransformation}
 \title{Plot Signal and its Transform}

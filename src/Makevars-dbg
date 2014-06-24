@@ -1,0 +1,8 @@
+###
+### $Id: Makevars-dbg 26 2014-06-20 21:04:35Z plroebuck $ (Debugging version for GCC compiler)
+###
+
+PKG_CPPFLAGS = -DDEBUG_RWT
+PKG_CFLAGS   = -Wall -ansi -pedantic
+PKG_LIBS     = -lm
+

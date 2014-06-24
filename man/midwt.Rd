@@ -1,3 +1,5 @@
+% $Id: midwt.Rd 24 2014-06-20 21:02:03Z plroebuck $
+
 \name{midwt}
 \alias{midwt}
 \title{Inverse Discrete Wavelet Transform}

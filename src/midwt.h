@@ -1,5 +1,5 @@
 /*
- * File Name: midwt.h
+ * $Id: midwt.h 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Public include for inverse discrete wavelet transform method 
  *

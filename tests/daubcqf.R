@@ -1,5 +1,5 @@
 ###
-### DAUBCQF.R
+### $Id: daubcqf.R 25 2014-06-20 21:02:46Z plroebuck $
 ###
 
 options(warn=1)

@@ -1,5 +1,5 @@
 /*
- * File Name: mirdwt.h
+ * $Id: mirdwt.h 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Public include for inverse redundant discrete wavelet transform method 
  *

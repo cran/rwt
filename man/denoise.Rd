@@ -1,3 +1,5 @@
+% $Id: denoise.Rd 24 2014-06-20 21:02:03Z plroebuck $
+
 \name{denoise}
 \alias{denoise}
 \alias{denoise.dwt}

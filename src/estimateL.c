@@ -1,5 +1,5 @@
 /*
- * File Name: estimateL.c
+ * $Id: estimateL.c 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Level estimation routine
  *

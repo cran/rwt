@@ -1,3 +1,5 @@
+% $Id: mrdwt.Rd 24 2014-06-20 21:02:03Z plroebuck $
+
 \name{mrdwt}
 \alias{mrdwt}
 \title{Redundant Discrete Wavelet Transform}

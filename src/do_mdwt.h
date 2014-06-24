@@ -1,5 +1,5 @@
 /*
- * DO_MDWT.H
+ * $Id: do_mdwt.h 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Public include for .Call interface to MDWT
  *

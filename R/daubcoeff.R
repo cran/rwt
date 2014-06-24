@@ -1,5 +1,5 @@
 ###
-### DAUBCOEFF.R
+### $Id: daubcoeff.R 22 2014-06-20 20:59:33Z plroebuck $
 ###
 
 

@@ -1,6 +1,6 @@
 ###
-### DAUBCQF.R - Computes the Daubechies' scaling and wavelet filters
-###             (normalized to sqrt(2)).
+### $Id: daubcqf.R 22 2014-06-20 20:59:33Z plroebuck $
+### Computes Daubechies' scaling and wavelet filters (normalized to sqrt(2)).
 ###
 
 PHASE.MINIMUM <- 'min'

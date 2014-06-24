@@ -1,5 +1,5 @@
 /*
- * File Name: do_mdwt.c
+ * $Id: do_mdwt.c 26 2014-06-20 21:04:35Z plroebuck $
  *
  * .Call interface to discrete wavelet transform method
  *

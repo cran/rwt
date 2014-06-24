@@ -1,5 +1,5 @@
 /*
- * File Name: mdwt.c
+ * $Id: mdwt.c 26 2014-06-20 21:04:35Z plroebuck $
  *
  * Discrete wavelet transform method
  *
