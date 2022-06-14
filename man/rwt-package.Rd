@@ -1,19 +1,22 @@
-% $Id: rwt-package.Rd 23 2014-06-20 21:01:04Z plroebuck $
+% $Id: rwt-package.Rd 53 2022-06-07 17:13:30Z proebuck $
 
 \name{rwt-package}
 \alias{rwt-package}
 \docType{package}
-\title{Rice Wavelet Toolbox wrapper}
+\title{
+  \Sexpr[stage=build,results=hide]{pd <- utils::packageDescription("rwt")}
+  \Sexpr[stage=build,results=text]{pd$Title}
+}
 \description{
-  A package for performing digital signal processing.
+  \Sexpr[stage=build,results=text]{pd$Description}
 }
 \details{
   \tabular{ll}{
-    Package: \tab rwt\cr
-    Type:    \tab Package\cr
-    Version: \tab \Sexpr[results=text]{packageDescription("rwt")$Version}\cr
-    Date:    \tab \Sexpr[results=text]{packageDescription("rwt")$Date}\cr
-    License: \tab \Sexpr[results=text]{packageDescription("rwt")$License}\cr
+    Package: \tab \Sexpr[stage=build,results=text]{pd$Package}\cr
+    Type:    \tab package\cr
+    Version: \tab \Sexpr[stage=build,results=text]{pd$Version}\cr
+    Date:    \tab \Sexpr[stage=build,results=text]{pd$Date}\cr
+    License: \tab \Sexpr[stage=build,results=text]{pd$License}\cr
   }
 
   For a complete list of functions, use \code{library(help="rwt")}.\cr
@@ -21,7 +24,7 @@
     \code{file.show(system.file("NEWS", package="rwt"))}.
 }
 \author{
-  P. Roebuck \email{proebuck@mdanderson.org}
+  P. Roebuck \email{proebuck1701@gmail.com}
 }
 \keyword{package}
 

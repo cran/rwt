@@ -1,5 +1,5 @@
 ###
-### $Id: daubcqf.R 25 2014-06-20 21:02:46Z plroebuck $
+### $Id: daubcqf.R 35 2022-05-31 05:53:13Z proebuck $
 ###
 
 options(warn=1)

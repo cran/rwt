@@ -1,4 +1,4 @@
-% $Id: threshold.Rd 24 2014-06-20 21:02:03Z plroebuck $
+% $Id: threshold.Rd 60 2022-06-09 14:29:59Z proebuck $
 
 \name{threshold}
 \alias{hardTh}
@@ -16,7 +16,7 @@ softTh(y, thld)
   \item{thld}{numeric threshold value to be applied}
 }
 \value{
-  \item{x}{Thresholded output}
+  Returns numeric vector of thresholded values of the same length as \code{y}.
 }
 \references{
   D.L. Donoho\cr
@@ -24,12 +24,12 @@ softTh(y, thld)
   Tech. Rept. Statistics, Stanford (1992)
 }
 \author{
-  P. Roebuck \email{proebuck@mdanderson.org}
+  P. Roebuck \email{proebuck1701@gmail.com}
 }
 \examples{
 sig <- makesig(SIGNAL.WERNER.SORROWS, 8)
 thld <- 1
-x <- rwt:::hardTh(sig$x, thld)
+x <- hardTh(sig$x, thld)
 }
 \keyword{interface}
 

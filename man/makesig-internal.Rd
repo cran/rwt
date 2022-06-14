@@ -1,4 +1,4 @@
-% $Id: makesig-internal.Rd 24 2014-06-20 21:02:03Z plroebuck $
+% $Id: makesig-internal.Rd 36 2022-05-31 06:47:19Z proebuck $
 
 \name{Internal Functions}
 \alias{.makesig.heavi.sine}
@@ -52,7 +52,7 @@
    See source for details.
 }
 \author{
-  P. Roebuck \email{proebuck@mdanderson.org}
+  P. Roebuck \email{proebuck1701@gmail.com}
 }
 \keyword{internal}
 

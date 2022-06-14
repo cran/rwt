@@ -1,5 +1,5 @@
 ###
-### $Id: NAMESPACE 60 2014-06-24 20:46:07Z plroebuck $
+### $Id: NAMESPACE 52 2022-06-07 17:10:47Z proebuck $
 ###
 
 useDynLib(rwt, .registration=TRUE)
@@ -8,6 +8,8 @@ useDynLib(rwt, .registration=TRUE)
 ## Imported methods
 ##
 import(matlab)
+importFrom(graphics, axis, box, legend, lines, plot)
+importFrom(stats, median)
 
 ##
 ## Public functions

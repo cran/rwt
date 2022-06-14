@@ -1,5 +1,5 @@
 ###
-### $Id: plotSignalTransformation.R 22 2014-06-20 20:59:33Z plroebuck $
+### $Id: plotSignalTransformation.R 59 2022-06-09 14:27:58Z proebuck $
 ###
 
 ##-----------------------------------------------------------------------------
@@ -11,6 +11,6 @@ plotSignalTransformation <- function(x, s, title, col.x="blue", col.s="red") {
     lines(x, col=col.x)
     lines(s, col=col.s)
     legend(length(s), 0, legend="signal", text.col=col.s, bty="n", xjust=1)
-    invisible()
+    invisible(NULL)
 }
 

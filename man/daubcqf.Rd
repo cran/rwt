@@ -1,4 +1,4 @@
-% $Id: daubcqf.Rd 24 2014-06-20 21:02:03Z plroebuck $
+% $Id: daubcqf.Rd 48 2022-06-06 21:15:30Z proebuck $
 
 \name{daubcqf}
 \alias{daubcqf}
@@ -29,11 +29,13 @@ solutions. Valid values are:
     \item{h.1}{minimal phase Daubechies' wavelet filter}
 }
 \references{
+  Ingrid Daubechies\cr
   \emph{Orthonormal Bases of Compactly Supported Wavelets}\cr
-  CPAM (Oct.89)
+  CPAM (Oct. 1988), 7(41), 909-996\cr
+  \doi{10.1002/cpa.3160410705}
 }
 \author{
-  P. Roebuck \email{proebuck@mdanderson.org}
+  P. Roebuck \email{proebuck1701@gmail.com}
 }
 \examples{
 h <- daubcqf(6)

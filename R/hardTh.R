@@ -1,5 +1,5 @@
 ###
-### $Id: hardTh.R 22 2014-06-20 20:59:33Z plroebuck $
+### $Id: hardTh.R 35 2022-05-31 05:53:13Z proebuck $
 ###
 
 #%    x = HardTh(y,thld); 

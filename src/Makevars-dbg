@@ -1,5 +1,5 @@
 ###
-### $Id: Makevars-dbg 26 2014-06-20 21:04:35Z plroebuck $ (Debugging version for GCC compiler)
+### $Id: Makevars-dbg 35 2022-05-31 05:53:13Z proebuck $ (Debugging version for GCC compiler)
 ###
 
 PKG_CPPFLAGS = -DDEBUG_RWT

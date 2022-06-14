@@ -1,4 +1,4 @@
-% $Id: denoise.Rd 24 2014-06-20 21:02:03Z plroebuck $
+% $Id: denoise.Rd 38 2022-05-31 07:00:40Z proebuck $
 
 \name{denoise}
 \alias{denoise}
@@ -76,12 +76,12 @@ denoise.udwt(x, h, option = default.udwt.option)
       element - \code{option[[7]] = type}.
     }
 }
-\author{
-  P. Roebuck \email{proebuck@mdanderson.org}
-}
 \note{
 Both \code{denoise.dwt} and \code{denoise.udwt} are convenience routines
 that call the \code{denoise} routine with appropriate default arguments.
+}
+\author{
+  P. Roebuck \email{proebuck1701@gmail.com}
 }
 \examples{
 sig <- makesig(SIGNAL.DOPPLER)

@@ -1,5 +1,5 @@
 ###
-### $Id: daubcqf.R 22 2014-06-20 20:59:33Z plroebuck $
+### $Id: daubcqf.R 35 2022-05-31 05:53:13Z proebuck $
 ### Computes Daubechies' scaling and wavelet filters (normalized to sqrt(2)).
 ###
 

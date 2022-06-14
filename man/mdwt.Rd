@@ -1,4 +1,4 @@
-% $Id: mdwt.Rd 24 2014-06-20 21:02:03Z plroebuck $
+% $Id: mdwt.Rd 36 2022-05-31 06:47:19Z proebuck $
 
 \name{mdwt}
 \alias{mdwt}
@@ -26,7 +26,7 @@ for maximal possible L.
     \item{L}{Number of levels in wavelet decomposition}
 }
 \author{
-  P. Roebuck \email{proebuck@mdanderson.org}
+  P. Roebuck \email{proebuck1701@gmail.com}
 }
 \examples{
 sig <- makesig(SIGNAL.LIN.CHIRP, 8)

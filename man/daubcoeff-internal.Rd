@@ -1,4 +1,4 @@
-% $Id: daubcoeff-internal.Rd 24 2014-06-20 21:02:03Z plroebuck $
+% $Id: daubcoeff-internal.Rd 41 2022-05-31 16:53:39Z proebuck $
 
 \name{daubcoeff}
 \alias{.getDaubechiesCoefficients}
@@ -12,17 +12,17 @@
 \arguments{
   \item{N}{numeric scalar specifying number of coefficients desired}
 }
-\value{
-  Returns a vector containing coefficients.
-}
 \details{
   Supported values of \code{N} are [4|6|8|10|12|14|16|18|20].
 }
+\value{
+  Returns a vector containing coefficients.
+}
 \references{
-  \url{http://cas.ensmp.fr/~chaplais/Wavetour_presentation/Tables/Daubechies/}
+  \url{https://cas.mines-paristech.fr/~chaplais/Wavetour_presentation/Tables/Daubechies/Daubechies_coefficients.csv}
 }
 \author{
-  P. Roebuck \email{proebuck@mdanderson.org}
+  P. Roebuck \email{proebuck1701@gmail.com}
 }
 \keyword{internal}
 

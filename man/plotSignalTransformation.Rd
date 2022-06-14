@@ -1,4 +1,4 @@
-% $Id: plotSignalTransformation.Rd 24 2014-06-20 21:02:03Z plroebuck $
+% $Id: plotSignalTransformation.Rd 59 2022-06-09 14:27:58Z proebuck $
 
 \name{plotSignalTransformation}
 \alias{plotSignalTransformation}
@@ -19,8 +19,11 @@ plotSignalTransformation(x, s, title, col.x = 'blue', col.s = 'red')
 \details{
   Used by demo code to display the results of a transformation.
 }
+\value{
+  Returns no value -- called for its side effect.
+}
 \author{
-  P. Roebuck \email{proebuck@mdanderson.org}
+  P. Roebuck \email{proebuck1701@gmail.com}
 }
 \keyword{hplot}
 
